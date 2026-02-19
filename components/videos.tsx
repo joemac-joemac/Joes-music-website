@@ -4,10 +4,6 @@ import { useState } from "react"
 
 const videos = [
   {
-    id: "sy-StogPwok",
-    title: "Live Performance",
-  },
-  {
     id: "Vlxv2ORanCk",
     title: "Live Performance",
   },
@@ -38,9 +34,6 @@ export function Videos() {
               className="absolute inset-0 w-full h-full"
             />
           </div>
-          <p className="mt-4 text-center text-foreground/70">
-            {videos[activeVideo].title}
-          </p>
         </div>
 
         {/* Video Thumbnails */}
