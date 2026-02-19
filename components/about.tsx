@@ -41,7 +41,7 @@ export function About() {
           <div className="relative">
             <div className="aspect-square rounded-lg overflow-hidden">
               <Image
-                src="/images/joemac-010226.jpg"
+                src="/images/JoeMac_Outdoor.png"
                 alt="Joe Mac performing"
                 fill
                 className="object-cover"

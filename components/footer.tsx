@@ -27,7 +27,7 @@ export function Footer() {
           {/* Logo & Tagline */}
           <div className="space-y-4">
             <Image
-              src="/images/joemac-logo.png"
+              src="/images/JoeMacLtd_logo_v.10.png"
               alt="Joe Mac"
               width={150}
               height={75}

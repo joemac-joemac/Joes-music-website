@@ -4,7 +4,7 @@ import React from "react"
 
 import { useState } from "react"
 import Link from "next/link"
-import { Mail, Phone, Instagram, Youtube, Send, CheckCircle } from "lucide-react"
+import { Mail, Phone, Instagram, Youtube, Send, CheckCircle, Loader2, AlertCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -12,11 +12,42 @@ import { Label } from "@/components/ui/label"
 
 export function Contact() {
   const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setSubmitted(true)
-    setTimeout(() => setSubmitted(false), 3000)
+    setError(null)
+    setLoading(true)
+
+    const form = e.currentTarget
+    const formData = new FormData(form)
+    const body = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      eventType: formData.get("eventType") || undefined,
+      message: formData.get("message"),
+    }
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      })
+      const data = await res.json()
+
+      if (!res.ok) {
+        throw new Error(data.error || "Something went wrong")
+      }
+      setSubmitted(true)
+      form.reset()
+      setTimeout(() => setSubmitted(false), 5000)
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Failed to send. Try again.")
+    } finally {
+      setLoading(false)
+    }
   }
 
   const contactInfo = [
@@ -119,6 +150,12 @@ export function Contact() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
+                {error && (
+                  <div className="flex items-center gap-2 p-3 rounded-lg bg-destructive/10 text-destructive text-sm border border-destructive/20">
+                    <AlertCircle className="h-4 w-4 shrink-0" />
+                    <span>{error}</span>
+                  </div>
+                )}
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="name" className="text-foreground">Name</Label>
@@ -154,16 +191,6 @@ export function Contact() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="date" className="text-foreground">Event Date</Label>
-                  <Input
-                    id="date"
-                    name="date"
-                    type="date"
-                    className="bg-input border-border text-foreground"
-                  />
-                </div>
-
-                <div className="space-y-2">
                   <Label htmlFor="message" className="text-foreground">Message</Label>
                   <Textarea
                     id="message"
@@ -178,10 +205,20 @@ export function Contact() {
                 <Button
                   type="submit"
                   size="lg"
-                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+                  disabled={loading}
+                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90 disabled:opacity-70"
                 >
-                  Send Message
-                  <Send className="ml-2 h-4 w-4" />
+                  {loading ? (
+                    <>
+                      Sending...
+                      <Loader2 className="ml-2 h-4 w-4 animate-spin" />
+                    </>
+                  ) : (
+                    <>
+                      Send Message
+                      <Send className="ml-2 h-4 w-4" />
+                    </>
+                  )}
                 </Button>
               </form>
             )}
