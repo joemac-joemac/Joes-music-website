@@ -10,6 +10,7 @@ const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || "Joe Mac Website <contact@jo
 export async function POST(request: Request) {
   const apiKey = process.env.RESEND_API_KEY
   if (!apiKey) {
+    console.error("[contact] RESEND_API_KEY is not set. In production, set it in your host's env (e.g. Vercel → Settings → Environment Variables).")
     return NextResponse.json(
       { error: "RESEND_API_KEY is not configured" },
       { status: 500 }
@@ -47,6 +48,7 @@ export async function POST(request: Request) {
     })
 
     if (error) {
+      console.error("[contact] Resend error:", JSON.stringify(error))
       return NextResponse.json(
         {
           error: error.message,
@@ -56,8 +58,10 @@ export async function POST(request: Request) {
       )
     }
 
+    console.info("[contact] Email sent successfully", { id: data?.id, to: TO_EMAIL })
     return NextResponse.json({ success: true, id: data?.id })
   } catch (err) {
+    console.error("[contact] Unexpected error:", err)
     return NextResponse.json(
       { error: err instanceof Error ? err.message : "Failed to send email" },
       { status: 500 }

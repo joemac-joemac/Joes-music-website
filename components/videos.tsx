@@ -7,6 +7,22 @@ const videos = [
     id: "Vlxv2ORanCk",
     title: "Live Performance",
   },
+  {
+    id: "vC39ZAs0FRA",
+    title: "Performance",
+  },
+  {
+    id: "s27cEB77UFA",
+    title: "Performance",
+  },
+  {
+    id: "hecByRnCmpo",
+    title: "Performance",
+  },
+  {
+    id: "J1sPNonI_uk",
+    title: "Performance",
+  },
 ]
 
 export function Videos() {
