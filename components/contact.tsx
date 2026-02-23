@@ -4,7 +4,8 @@ import React from "react"
 
 import { useState } from "react"
 import Link from "next/link"
-import { Mail, Phone, Instagram, Youtube, Music, Send, CheckCircle, Loader2, AlertCircle } from "lucide-react"
+import { Mail, Phone, Send, CheckCircle, Loader2, AlertCircle } from "lucide-react"
+import { InstagramIcon, YoutubeIcon, SpotifyIcon, AppleMusicIcon } from "@/components/brand-icons"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -70,28 +71,32 @@ export function Contact() {
 
   const socialLinks = [
     {
-      icon: Instagram,
+      icon: InstagramIcon,
       label: "Instagram",
       value: "@joemac_joemac",
       href: "https://instagram.com/joemac_joemac",
+      iconClassName: "text-[#E4405F]",
     },
     {
-      icon: Youtube,
+      icon: YoutubeIcon,
       label: "YouTube",
       value: "@joemac_joemac",
       href: "http://www.youtube.com/@joemac_joemac",
+      iconClassName: "text-[#FF0000]",
     },
     {
-      icon: Music,
+      icon: SpotifyIcon,
       label: "Spotify",
       value: "Listen on Spotify",
       href: "https://open.spotify.com/artist/4WgEIXgoeLApCW0dy00csU?si=_YqRBM_DSQmspJItBIRTQw",
+      iconClassName: "text-[#1DB954]",
     },
     {
-      icon: Music,
+      icon: AppleMusicIcon,
       label: "Apple Music",
       value: "Listen on Apple Music",
       href: "https://music.apple.com/nz/artist/joe-mac/1663664151",
+      iconClassName: "text-[#FA243C]",
     },
   ]
 
@@ -141,7 +146,7 @@ export function Contact() {
                     rel="noopener noreferrer"
                     className="flex items-center gap-4 p-4 rounded-lg bg-muted/50 border border-border hover:border-primary/50 transition-colors group"
                   >
-                    <item.icon className="h-6 w-6 text-secondary" />
+                    <item.icon className={`h-6 w-6 ${item.iconClassName ?? "text-secondary"}`} />
                     <div>
                       <p className="text-sm text-foreground/60">{item.label}</p>
                       <p className="font-semibold text-foreground group-hover:text-secondary transition-colors">

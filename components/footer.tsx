@@ -1,6 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
-import { Instagram, Youtube, Music, Mail, Phone } from "lucide-react"
+import { Mail, Phone } from "lucide-react"
+import { InstagramIcon, YoutubeIcon, SpotifyIcon, AppleMusicIcon } from "@/components/brand-icons"
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
@@ -14,10 +15,10 @@ export function Footer() {
   ]
 
   const socialLinks = [
-    { href: "https://instagram.com/joemac_joemac", icon: Instagram, label: "Instagram" },
-    { href: "http://www.youtube.com/@joemac_joemac", icon: Youtube, label: "YouTube" },
-    { href: "https://open.spotify.com/artist/4WgEIXgoeLApCW0dy00csU?si=_YqRBM_DSQmspJItBIRTQw", icon: Music, label: "Spotify" },
-    { href: "https://music.apple.com/nz/artist/joe-mac/1663664151", icon: Music, label: "Apple Music" },
+    { href: "https://instagram.com/joemac_joemac", icon: InstagramIcon, label: "Instagram", iconClassName: "text-[#E4405F]" },
+    { href: "http://www.youtube.com/@joemac_joemac", icon: YoutubeIcon, label: "YouTube", iconClassName: "text-[#FF0000]" },
+    { href: "https://open.spotify.com/artist/4WgEIXgoeLApCW0dy00csU?si=_YqRBM_DSQmspJItBIRTQw", icon: SpotifyIcon, label: "Spotify", iconClassName: "text-[#1DB954]" },
+    { href: "https://music.apple.com/nz/artist/joe-mac/1663664151", icon: AppleMusicIcon, label: "Apple Music", iconClassName: "text-[#FA243C]" },
     { href: "mailto:hi@joemac.co.nz", icon: Mail, label: "Email" },
     { href: "tel:+6421563808", icon: Phone, label: "Phone" },
   ]
@@ -72,7 +73,7 @@ export function Footer() {
                   rel={social.href.startsWith("http") ? "noopener noreferrer" : undefined}
                   className="p-2 rounded-lg bg-muted border border-border text-foreground/60 hover:text-primary hover:border-primary/50 transition-all"
                 >
-                  <social.icon className="h-5 w-5" />
+                  <social.icon className={`h-5 w-5 ${social.iconClassName ?? ""}`} />
                   <span className="sr-only">{social.label}</span>
                 </Link>
               ))}
