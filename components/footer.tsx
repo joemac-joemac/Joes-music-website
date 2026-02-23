@@ -43,7 +43,7 @@ export function Footer() {
 
           {/* Quick Links */}
           <div className="space-y-4">
-            <h4 className="font-semibold text-foreground uppercase tracking-wider text-sm">
+            <h4 className="font-semibold text-[var(--neon-pink)] uppercase tracking-wider text-sm drop-shadow-[0_0_8px_rgba(255,45,122,0.3)]">
               Quick Links
             </h4>
             <nav className="flex flex-col gap-2">
@@ -51,7 +51,7 @@ export function Footer() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-foreground/60 hover:text-primary transition-colors text-sm"
+                  className="text-foreground/60 hover:text-[var(--neon-pink)] transition-colors text-sm"
                 >
                   {link.label}
                 </Link>
@@ -61,7 +61,7 @@ export function Footer() {
 
           {/* Connect */}
           <div className="space-y-4">
-            <h4 className="font-semibold text-foreground uppercase tracking-wider text-sm">
+            <h4 className="font-semibold text-[var(--neon-blue)] uppercase tracking-wider text-sm drop-shadow-[0_0_8px_rgba(0,212,255,0.3)]">
               Connect
             </h4>
             <div className="flex gap-4">
@@ -71,7 +71,7 @@ export function Footer() {
                   href={social.href}
                   target={social.href.startsWith("http") ? "_blank" : undefined}
                   rel={social.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className="p-2 rounded-lg bg-muted border border-border text-foreground/60 hover:text-primary hover:border-primary/50 transition-all"
+                  className="p-2 rounded-lg bg-muted border border-border text-foreground/60 hover:text-[var(--neon-pink)] hover:border-[var(--neon-pink)]/50 hover:shadow-[0_0_10px_rgba(255,45,122,0.2)] transition-all"
                 >
                   <social.icon className={`h-5 w-5 ${social.iconClassName ?? ""}`} />
                   <span className="sr-only">{social.label}</span>
@@ -79,11 +79,11 @@ export function Footer() {
               ))}
             </div>
             <p className="text-foreground/60 text-sm">
-              <Link href="mailto:hi@joemac.co.nz" className="hover:text-primary transition-colors">
+              <Link href="mailto:hi@joemac.co.nz" className="hover:text-[var(--neon-pink)] transition-colors">
                 hi@joemac.co.nz
               </Link>
               <br />
-              <Link href="tel:+6421563808" className="hover:text-primary transition-colors">
+              <Link href="tel:+6421563808" className="hover:text-[var(--neon-pink)] transition-colors">
                 (+64) 21 563 808
               </Link>
             </p>

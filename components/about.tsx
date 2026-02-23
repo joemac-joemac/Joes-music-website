@@ -30,10 +30,8 @@ export function About() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground uppercase tracking-tight">
-            About
-          </h2>
-          <div className="mt-4 h-1 w-16 bg-primary mx-auto" />
+          <h2 className="section-title">About</h2>
+          <div className="section-title-underline" />
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -48,7 +46,7 @@ export function About() {
               />
             </div>
             {/* Decorative element */}
-            <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-primary rounded-lg -z-10" />
+            <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-[var(--neon-pink)] rounded-lg -z-10 shadow-[0_0_15px_rgba(255,45,122,0.3)]" />
           </div>
 
           {/* Content */}
@@ -62,7 +60,7 @@ export function About() {
             <p className="text-lg text-foreground/80 leading-relaxed">
               He's also a member of Dumpweed, a high-energy Blink-182 tribute band known for sold-out shows, and is steadily releasing his own original music. During the week, Joe teaches guitar, bass, keyboard, and drums, and works in post-production.
             </p>
-            <p className="text-xl text-secondary font-medium italic">
+            <p className="text-xl text-[var(--neon-blue)] font-medium italic drop-shadow-[0_0_12px_rgba(0,212,255,0.4)]">
               Music is Joe Mac's life, and he brings passion, experience, and a touch of spontaneity to every gig.
             </p>
 
@@ -73,7 +71,7 @@ export function About() {
                   key={item.title}
                   className="flex items-center gap-3 p-4 rounded-lg bg-muted/50 border border-border"
                 >
-                  <item.icon className="h-8 w-8 text-primary flex-shrink-0" />
+                  <item.icon className="h-8 w-8 text-[var(--neon-pink)] flex-shrink-0 drop-shadow-[0_0_8px_rgba(255,45,122,0.5)]" />
                   <div>
                     <h4 className="font-semibold text-foreground">{item.title}</h4>
                     <p className="text-sm text-foreground/60">{item.description}</p>

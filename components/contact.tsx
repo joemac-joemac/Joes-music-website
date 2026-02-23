@@ -105,10 +105,8 @@ export function Contact() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground uppercase tracking-tight">
-            Get In Touch
-          </h2>
-          <div className="mt-4 h-1 w-16 bg-primary mx-auto" />
+          <h2 className="section-title">Get In Touch</h2>
+          <div className="section-title-underline-blue" />
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
@@ -121,12 +119,12 @@ export function Contact() {
                   <Link
                     key={item.label}
                     href={item.href}
-                    className="flex items-center gap-4 p-4 rounded-lg bg-muted/50 border border-border hover:border-primary/50 transition-colors group"
+                    className="flex items-center gap-4 p-4 rounded-lg bg-muted/50 border border-border hover:border-[var(--neon-pink)]/50 hover:shadow-[0_0_12px_rgba(255,45,122,0.2)] transition-all group"
                   >
-                    <item.icon className="h-6 w-6 text-primary" />
+                    <item.icon className="h-6 w-6 text-[var(--neon-pink)]" />
                     <div>
                       <p className="text-sm text-foreground/60">{item.label}</p>
-                      <p className="font-semibold text-foreground group-hover:text-primary transition-colors">
+                      <p className="font-semibold text-foreground group-hover:text-[var(--neon-pink)] transition-colors">
                         {item.value}
                       </p>
                     </div>
@@ -144,12 +142,12 @@ export function Contact() {
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-4 p-4 rounded-lg bg-muted/50 border border-border hover:border-primary/50 transition-colors group"
+                    className="flex items-center gap-4 p-4 rounded-lg bg-muted/50 border border-border hover:border-[var(--neon-blue)]/50 hover:shadow-[0_0_12px_rgba(0,212,255,0.2)] transition-all group"
                   >
-                    <item.icon className={`h-6 w-6 ${item.iconClassName ?? "text-secondary"}`} />
+                    <item.icon className={`h-6 w-6 ${item.iconClassName ?? "text-[var(--neon-blue)]"}`} />
                     <div>
                       <p className="text-sm text-foreground/60">{item.label}</p>
-                      <p className="font-semibold text-foreground group-hover:text-secondary transition-colors">
+                      <p className="font-semibold text-foreground group-hover:text-[var(--neon-blue)] transition-colors">
                         {item.value}
                       </p>
                     </div>
@@ -164,7 +162,7 @@ export function Contact() {
             <h3 className="text-xl font-bold text-foreground mb-6">Send a Message</h3>
             {submitted ? (
               <div className="flex flex-col items-center justify-center py-12 text-center">
-                <CheckCircle className="h-16 w-16 text-primary mb-4" />
+                <CheckCircle className="h-16 w-16 text-[var(--neon-pink)] mb-4 drop-shadow-[0_0_12px_rgba(255,45,122,0.5)]" />
                 <h4 className="text-xl font-bold text-foreground mb-2">Message Sent!</h4>
                 <p className="text-foreground/70">Joe will get back to you soon.</p>
               </div>
@@ -225,8 +223,9 @@ export function Contact() {
                 <Button
                   type="submit"
                   size="lg"
+                  variant="ghost"
                   disabled={loading}
-                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90 disabled:opacity-70"
+                  className="w-full btn-neon-pink rounded-[10px] disabled:opacity-70"
                 >
                   {loading ? (
                     <>

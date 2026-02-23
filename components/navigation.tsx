@@ -59,7 +59,7 @@ export function Navigation() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors uppercase tracking-wider"
+                className="text-sm font-medium text-foreground/80 hover:text-[var(--neon-pink)] transition-colors uppercase tracking-wider"
               >
                 {link.label}
               </Link>
@@ -74,13 +74,13 @@ export function Navigation() {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-foreground/70 hover:text-primary transition-colors"
+                className="text-foreground/70 hover:text-[var(--neon-pink)] transition-colors"
               >
                 <social.icon className={`h-5 w-5 ${social.iconClassName ?? ""}`} />
                 <span className="sr-only">{social.label}</span>
               </Link>
             ))}
-            <Button asChild size="sm" className="ml-2 bg-primary text-primary-foreground hover:bg-primary/90">
+            <Button asChild variant="ghost" size="sm" className="ml-2 btn-neon-pink rounded-[10px] text-sm">
               <Link href="#contact">Book Now</Link>
             </Button>
           </div>
@@ -104,7 +104,7 @@ export function Navigation() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="block text-lg font-medium text-foreground hover:text-primary transition-colors uppercase tracking-wider"
+                className="block text-lg font-medium text-foreground hover:text-[var(--neon-pink)] transition-colors uppercase tracking-wider"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {link.label}
@@ -117,13 +117,13 @@ export function Navigation() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-foreground/70 hover:text-primary transition-colors"
+                  className="text-foreground/70 hover:text-[var(--neon-pink)] transition-colors"
                 >
                   <social.icon className="h-6 w-6" />
                 </Link>
               ))}
             </div>
-            <Button asChild className="w-full mt-4 bg-primary text-primary-foreground hover:bg-primary/90">
+            <Button asChild variant="ghost" className="w-full mt-4 btn-neon-pink rounded-[10px]">
               <Link href="#contact">Book Now</Link>
             </Button>
           </div>

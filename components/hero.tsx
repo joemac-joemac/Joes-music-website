@@ -33,20 +33,21 @@ export function Hero() {
           />
         </div>
 
-        {/* CTA Buttons */}
+        {/* CTA Buttons - neon sign aesthetic */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Button
             asChild
+            variant="ghost"
             size="lg"
-            className="bg-primary text-primary-foreground hover:bg-primary/90 px-10 py-6 text-base font-semibold uppercase tracking-wider"
+            className="btn-neon-pink px-10 py-6 text-base font-semibold uppercase tracking-wider rounded-[10px]"
           >
             <Link href="#contact">Book Joe Mac</Link>
           </Button>
           <Button
             asChild
-            variant="outline"
+            variant="ghost"
             size="lg"
-            className="border-foreground/30 text-foreground hover:bg-foreground/10 hover:border-foreground/50 bg-transparent px-10 py-6 text-base font-semibold uppercase tracking-wider"
+            className="btn-neon-blue px-10 py-6 text-base font-semibold uppercase tracking-wider rounded-[10px]"
           >
             <Link href="#shows">Upcoming Shows</Link>
           </Button>
@@ -55,7 +56,7 @@ export function Hero() {
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <Link href="#about" className="text-foreground/50 hover:text-primary transition-colors">
+        <Link href="#about" className="hero-scroll-link text-foreground/50 hover:text-[var(--neon-pink)] transition-colors">
           <ChevronDown className="h-8 w-8" />
           <span className="sr-only">Scroll down</span>
         </Link>

@@ -4,29 +4,32 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Clean dark theme inspired by neon logo */
+  /* Neon sign aesthetic */
+  --neon-pink: #FF2D7A;
+  --neon-blue: #00D4FF;
+  --neon-pink-rgb: 255, 45, 122;
+  --neon-blue-rgb: 0, 212, 255;
+  /* Clean dark theme */
   --background: oklch(0.13 0.01 270);
   --foreground: oklch(0.98 0 0);
   --card: oklch(0.16 0.01 270);
   --card-foreground: oklch(0.98 0 0);
   --popover: oklch(0.16 0.01 270);
   --popover-foreground: oklch(0.98 0 0);
-  /* Cyan/teal primary from logo */
-  --primary: oklch(0.78 0.15 195);
-  --primary-foreground: oklch(0.13 0.01 270);
-  /* Pink/magenta secondary from logo */
-  --secondary: oklch(0.7 0.2 350);
-  --secondary-foreground: oklch(0.98 0 0);
+  /* Neon pink primary / electric blue secondary */
+  --primary: var(--neon-pink);
+  --primary-foreground: oklch(0.98 0 0);
+  --secondary: var(--neon-blue);
+  --secondary-foreground: oklch(0.13 0.01 270);
   --muted: oklch(0.22 0.01 270);
   --muted-foreground: oklch(0.65 0.02 270);
-  /* Yellow accent from logo oval */
   --accent: oklch(0.88 0.18 95);
   --accent-foreground: oklch(0.13 0.01 270);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.98 0 0);
   --border: oklch(0.28 0.01 270);
   --input: oklch(0.2 0.01 270);
-  --ring: oklch(0.78 0.15 195);
+  --ring: var(--neon-pink);
   --chart-1: oklch(0.78 0.15 195);
   --chart-2: oklch(0.7 0.2 350);
   --chart-3: oklch(0.88 0.18 95);
@@ -91,4 +94,90 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Hero neon sign CTA buttons */
+.btn-neon-pink {
+  background: rgba(0, 0, 0, 0.65);
+  color: #FF2D7A;
+  border: 2px solid #FF2D7A;
+  border-radius: 10px;
+  box-shadow:
+    0 0 5px rgba(255, 45, 122, 0.6),
+    0 0 15px rgba(255, 45, 122, 0.4),
+    0 0 30px rgba(255, 45, 122, 0.2);
+  transition: background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.btn-neon-pink:hover {
+  background: #FF2D7A;
+  color: white;
+  border-color: #FF2D7A;
+  box-shadow:
+    0 0 8px rgba(255, 45, 122, 0.8),
+    0 0 20px rgba(255, 45, 122, 0.5),
+    0 0 40px rgba(255, 45, 122, 0.3),
+    0 0 60px rgba(255, 45, 122, 0.15);
+}
+
+.btn-neon-blue {
+  background: rgba(0, 0, 0, 0.65);
+  color: #00D4FF;
+  border: 2px solid #00D4FF;
+  border-radius: 10px;
+  box-shadow:
+    0 0 5px rgba(0, 212, 255, 0.6),
+    0 0 15px rgba(0, 212, 255, 0.4),
+    0 0 30px rgba(0, 212, 255, 0.2);
+  transition: background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.btn-neon-blue:hover {
+  background: #00D4FF;
+  color: white;
+  border-color: #00D4FF;
+  box-shadow:
+    0 0 8px rgba(0, 212, 255, 0.8),
+    0 0 20px rgba(0, 212, 255, 0.5),
+    0 0 40px rgba(0, 212, 255, 0.3),
+    0 0 60px rgba(0, 212, 255, 0.15);
+}
+
+/* Section titles – neon sign vibe */
+.section-title {
+  font-size: clamp(1.875rem, 4vw, 3rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.025em;
+  color: var(--foreground);
+  text-shadow:
+    0 0 10px rgba(var(--neon-pink-rgb), 0.5),
+    0 0 20px rgba(var(--neon-pink-rgb), 0.25),
+    0 0 40px rgba(var(--neon-pink-rgb), 0.1);
+}
+.section-title-underline {
+  margin-top: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  height: 3px;
+  width: 4rem;
+  background: var(--neon-pink);
+  border-radius: 2px;
+  box-shadow:
+    0 0 8px rgba(var(--neon-pink-rgb), 0.8),
+    0 0 16px rgba(var(--neon-pink-rgb), 0.4);
+}
+.section-title-underline-blue {
+  margin-top: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  height: 3px;
+  width: 4rem;
+  background: var(--neon-blue);
+  border-radius: 2px;
+  box-shadow:
+    0 0 8px rgba(var(--neon-blue-rgb), 0.8),
+    0 0 16px rgba(var(--neon-blue-rgb), 0.4);
+}
+
+.hero-scroll-link:hover {
+  filter: drop-shadow(0 0 8px rgba(var(--neon-pink-rgb), 0.6));
 }

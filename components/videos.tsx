@@ -17,10 +17,8 @@ export function Videos() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground uppercase tracking-tight">
-            Watch
-          </h2>
-          <div className="mt-4 h-1 w-16 bg-primary mx-auto" />
+          <h2 className="section-title">Watch</h2>
+          <div className="section-title-underline-blue" />
         </div>
 
         {/* Main Video Player */}
@@ -44,8 +42,8 @@ export function Videos() {
               onClick={() => setActiveVideo(index)}
               className={`relative w-40 aspect-video rounded-lg overflow-hidden border-2 transition-all ${
                 activeVideo === index
-                  ? "border-primary ring-2 ring-primary/30"
-                  : "border-border hover:border-primary/50"
+                  ? "border-[var(--neon-blue)] ring-2 ring-[var(--neon-blue)]/30 shadow-[0_0_15px_rgba(0,212,255,0.4)]"
+                  : "border-border hover:border-[var(--neon-blue)]/50"
               }`}
             >
               <img
@@ -54,7 +52,7 @@ export function Videos() {
                 className="w-full h-full object-cover"
               />
               {activeVideo === index && (
-                <div className="absolute inset-0 bg-primary/20" />
+                <div className="absolute inset-0 bg-[var(--neon-blue)]/20" />
               )}
             </button>
           ))}

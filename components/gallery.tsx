@@ -35,10 +35,8 @@ export function Gallery() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground uppercase tracking-tight">
-            Gallery
-          </h2>
-          <div className="mt-4 h-1 w-16 bg-primary mx-auto" />
+          <h2 className="section-title">Gallery</h2>
+          <div className="section-title-underline-blue" />
         </div>
 
         {/* Image Grid */}
@@ -74,7 +72,7 @@ export function Gallery() {
           <button
             type="button"
             onClick={() => setSelectedImage(null)}
-            className="absolute top-6 right-6 text-foreground hover:text-primary transition-colors"
+            className="absolute top-6 right-6 text-foreground hover:text-[var(--neon-pink)] transition-colors"
           >
             <X className="h-8 w-8" />
             <span className="sr-only">Close</span>
