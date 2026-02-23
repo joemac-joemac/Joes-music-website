@@ -4,8 +4,8 @@ import { NextResponse } from "next/server"
 // Your email – change RESEND_TO_EMAIL in .env or it defaults to hi@joemac.co.nz
 const TO_EMAIL = process.env.RESEND_TO_EMAIL || "hi@joemac.co.nz"
 
-// "From" must be a verified domain in Resend. Use onboarding@resend.dev for testing.
-const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || "Website <onboarding@resend.dev>"
+// "From" must use your verified domain (joemac.co.nz). Override with RESEND_FROM_EMAIL in .env if needed.
+const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || "Joe Mac Website <contact@joemac.co.nz>"
 
 export async function POST(request: Request) {
   const apiKey = process.env.RESEND_API_KEY
@@ -47,7 +47,13 @@ export async function POST(request: Request) {
     })
 
     if (error) {
-      return NextResponse.json({ error: error.message }, { status: 400 })
+      return NextResponse.json(
+        {
+          error: error.message,
+          debug: process.env.NODE_ENV === "development" ? { from: FROM_EMAIL, to: TO_EMAIL } : undefined,
+        },
+        { status: 400 }
+      )
     }
 
     return NextResponse.json({ success: true, id: data?.id })

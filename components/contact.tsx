@@ -4,7 +4,7 @@ import React from "react"
 
 import { useState } from "react"
 import Link from "next/link"
-import { Mail, Phone, Instagram, Youtube, Send, CheckCircle, Loader2, AlertCircle } from "lucide-react"
+import { Mail, Phone, Instagram, Youtube, Music, Send, CheckCircle, Loader2, AlertCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -38,7 +38,10 @@ export function Contact() {
       const data = await res.json()
 
       if (!res.ok) {
-        throw new Error(data.error || "Something went wrong")
+        const msg = data.debug
+          ? `${data.error} (Server is using from: ${data.debug.from})`
+          : (data.error || "Something went wrong")
+        throw new Error(msg)
       }
       setSubmitted(true)
       form.reset()
@@ -77,6 +80,18 @@ export function Contact() {
       label: "YouTube",
       value: "@joemac_joemac",
       href: "http://www.youtube.com/@joemac_joemac",
+    },
+    {
+      icon: Music,
+      label: "Spotify",
+      value: "Listen on Spotify",
+      href: "https://open.spotify.com/artist/4WgEIXgoeLApCW0dy00csU?si=_YqRBM_DSQmspJItBIRTQw",
+    },
+    {
+      icon: Music,
+      label: "Apple Music",
+      value: "Listen on Apple Music",
+      href: "https://music.apple.com/nz/artist/joe-mac/1663664151",
     },
   ]
 

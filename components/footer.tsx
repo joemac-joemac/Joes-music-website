@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import { Instagram, Youtube, Mail, Phone } from "lucide-react"
+import { Instagram, Youtube, Music, Mail, Phone } from "lucide-react"
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
@@ -16,6 +16,8 @@ export function Footer() {
   const socialLinks = [
     { href: "https://instagram.com/joemac_joemac", icon: Instagram, label: "Instagram" },
     { href: "http://www.youtube.com/@joemac_joemac", icon: Youtube, label: "YouTube" },
+    { href: "https://open.spotify.com/artist/4WgEIXgoeLApCW0dy00csU?si=_YqRBM_DSQmspJItBIRTQw", icon: Music, label: "Spotify" },
+    { href: "https://music.apple.com/nz/artist/joe-mac/1663664151", icon: Music, label: "Apple Music" },
     { href: "mailto:hi@joemac.co.nz", icon: Mail, label: "Email" },
     { href: "tel:+6421563808", icon: Phone, label: "Phone" },
   ]
