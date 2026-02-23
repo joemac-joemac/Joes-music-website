@@ -45,7 +45,7 @@ export function Navigation() {
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
             <Image
-              src="/images/JoeMacLtd_logo_v.10.png"
+              src="/images/JoeMacLtd_logo_v.13_tr.png"
               alt="Joe Mac"
               width={120}
               height={60}

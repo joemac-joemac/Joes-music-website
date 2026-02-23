@@ -30,7 +30,7 @@ export function Footer() {
           {/* Logo & Tagline */}
           <div className="space-y-4">
             <Image
-              src="/images/JoeMacLtd_logo_v.10.png"
+              src="/images/JoeMacLtd_logo_v.13_tr.png"
               alt="Joe Mac"
               width={150}
               height={75}
