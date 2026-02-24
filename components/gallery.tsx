@@ -28,6 +28,21 @@ export function Gallery() {
       alt: "Dumpweed concert poster",
       span: "col-span-2 row-span-1",
     },
+    {
+      src: "/images/joe-wills-thelookout.png",
+      alt: "Joe and Wills performing at The Lookout",
+      span: "col-span-1 row-span-1",
+    },
+    {
+      src: "/images/dumpweed-dingdong-deskpov.png",
+      alt: "Live band performance, audience view",
+      span: "col-span-1 row-span-1",
+    },
+    {
+      src: "/images/joe-roy-thelookout.png",
+      alt: "Joe and Roy with guitar and keyboards at The Lookout",
+      span: "col-span-1 row-span-1",
+    },
   ]
 
   return (
