@@ -4,7 +4,8 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    unoptimized: true,
+    // Set to true only if you use static export or a host that can't run Next image optimization
+    unoptimized: false,
   },
 }
 

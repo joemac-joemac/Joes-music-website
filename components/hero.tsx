@@ -21,6 +21,7 @@ export function Hero() {
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto pt-20">
+        <h1 className="sr-only">Joe Mac — Musician & Live Performer</h1>
         {/* Logo */}
         <div className="mb-8">
           <Image

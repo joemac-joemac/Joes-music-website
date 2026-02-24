@@ -41,7 +41,7 @@ export function Navigation() {
       }`}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <nav className="flex h-20 items-center justify-between">
+        <nav className="flex h-20 items-center justify-between" aria-label="Main navigation">
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
             <Image
@@ -90,6 +90,8 @@ export function Navigation() {
             type="button"
             className="md:hidden text-foreground"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileMenuOpen}
           >
             {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
