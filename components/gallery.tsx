@@ -43,6 +43,11 @@ export function Gallery() {
       alt: "Joe and Roy with guitar and keyboards at The Lookout",
       span: "col-span-1 row-span-1",
     },
+    {
+      src: "/images/joemacband-wedding-280226.png",
+      alt: "Joe Mac Band performing at outdoor wedding reception under string lights, crowd dancing",
+      span: "col-span-1 row-span-1",
+    },
   ]
 
   return (
