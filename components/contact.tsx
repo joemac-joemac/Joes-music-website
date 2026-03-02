@@ -142,7 +142,7 @@ export function Contact() {
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-4 p-4 rounded-lg bg-muted/50 border border-border hover:border-[var(--neon-blue)]/50 hover:shadow-[0_0_12px_rgba(0,212,255,0.2)] transition-all group"
+                    className="flex items-center gap-4 p-4 rounded-lg bg-muted/50 border border-border hover:border-[var(--neon-blue)]/50 hover:shadow-[0_0_12px_rgba(0,210,255,0.2)] transition-all group"
                   >
                     <item.icon className={`h-6 w-6 ${item.iconClassName ?? "text-[var(--neon-blue)]"}`} />
                     <div>
