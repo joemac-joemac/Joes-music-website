@@ -55,7 +55,7 @@ export function About() {
               Joe Mac is a seasoned musician and all-around music professional, blending over a decade of live performance experience with a background in commercial music.
             </p>
             <p className="text-lg text-foreground/80 leading-relaxed">
-              From solo gigs and weddings to corporate events, Joe brings energy, versatility, and a repertoire of 1,000+ songs to every stage—usually without a setlist, letting the night's vibe lead the way, and drawing on a broad network of top-level musicians to deliver memorable performances of all kinds.
+              Whether solo, or in a band, Joe brings energy, versatility to every stage—usually without a setlist, letting the night's vibe lead the way, and drawing on a broad network of world-class musicians to deliver memorable performances of all kinds.
             </p>
             <p className="text-lg text-foreground/80 leading-relaxed">
               He's also a member of Dumpweed, a high-energy Blink-182 tribute band known for sold-out shows, and is steadily releasing his own original music. During the week, Joe teaches guitar, bass, keyboard, and drums, and works in post-production.
