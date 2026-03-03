@@ -90,7 +90,7 @@ export function Reviews() {
               onClick={() => setIndex(i)}
               className={`h-2 rounded-full transition-all duration-300 ${
                 i === index
-                  ? "w-6 bg-[var(--neon-blue)] shadow-[0_0_8px_rgba(0,210,255,0.6)]"
+                  ? "w-6 bg-[var(--neon-blue)] shadow-[0_0_8px_rgba(40,128,255,0.6)]"
                   : "w-2 bg-foreground/30 hover:bg-foreground/50"
               }`}
             />

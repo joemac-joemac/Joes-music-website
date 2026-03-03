@@ -61,7 +61,7 @@ export function Footer() {
 
           {/* Connect */}
           <div className="space-y-4">
-            <h4 className="font-semibold text-[var(--neon-blue)] uppercase tracking-wider text-sm drop-shadow-[0_0_8px_rgba(0,210,255,0.3)]">
+            <h4 className="font-semibold text-[var(--neon-blue)] uppercase tracking-wider text-sm drop-shadow-[0_0_8px_rgba(40,128,255,0.3)]">
               Connect
             </h4>
             <div className="flex gap-4">

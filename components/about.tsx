@@ -60,7 +60,7 @@ export function About() {
             <p className="text-lg text-foreground/80 leading-relaxed">
               He's also a member of Dumpweed, a high-energy Blink-182 tribute band known for sold-out shows, and is steadily releasing his own original music. During the week, Joe teaches guitar, bass, keyboard, and drums, and works in post-production.
             </p>
-            <p className="text-xl text-[var(--neon-blue)] font-medium italic drop-shadow-[0_0_12px_rgba(0,210,255,0.4)]">
+            <p className="text-xl text-[var(--neon-blue)] font-medium italic drop-shadow-[0_0_12px_rgba(40,128,255,0.4)]">
               Music is Joe Mac's life, and he brings passion, experience, and a touch of spontaneity to every gig.
             </p>
 

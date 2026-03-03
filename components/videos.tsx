@@ -58,7 +58,7 @@ export function Videos() {
               onClick={() => setActiveVideo(index)}
               className={`relative w-40 aspect-video rounded-lg overflow-hidden border-2 transition-all ${
                 activeVideo === index
-                  ? "border-[var(--neon-blue)] ring-2 ring-[var(--neon-blue)]/30 shadow-[0_0_15px_rgba(0,210,255,0.4)]"
+                  ? "border-[var(--neon-blue)] ring-2 ring-[var(--neon-blue)]/30 shadow-[0_0_15px_rgba(40,128,255,0.4)]"
                   : "border-border hover:border-[var(--neon-blue)]/50"
               }`}
             >
