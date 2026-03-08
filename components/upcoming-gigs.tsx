@@ -12,22 +12,6 @@ export function UpcomingGigs() {
   const gigs: Gig[] = [
     {
       month: "Mar",
-      day: "6",
-      year: "2026",
-      title: "Joe Mac Solo",
-      venue: "The Lookout Bar & Kitchen",
-      time: "5pm - 9pm",
-    },
-    {
-      month: "Mar",
-      day: "8",
-      year: "2026",
-      title: "Joe Mac Solo",
-      venue: "Fergus Bar & Kitchen",
-      time: "4pm - 7pm",
-    },
-    {
-      month: "Mar",
       day: "13",
       year: "2026",
       title: "Joe Mac Solo",
@@ -180,7 +164,7 @@ export function UpcomingGigs() {
         <div className="text-center mb-12">
           <h2 className="section-title">Upcoming Public Shows</h2>
           <p className="mt-4 text-foreground/70 text-lg">
-            Catch me live at these venues — all shows are free entry!
+            Catch me live at these venues
           </p>
           <div className="section-title-underline" />
         </div>
