@@ -1,3 +1,8 @@
+const MONTH_NAMES: Record<string, number> = {
+  Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5,
+  Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11,
+}
+
 type Gig = {
   month: string
   day: string
@@ -8,8 +13,18 @@ type Gig = {
   ticketUrl?: string
 }
 
+function isUpcoming(gig: Gig): boolean {
+  const monthIndex = MONTH_NAMES[gig.month]
+  if (monthIndex === undefined) return true
+  const gigDate = new Date(parseInt(gig.year, 10), monthIndex, parseInt(gig.day, 10))
+  const today = new Date()
+  today.setHours(0, 0, 0, 0)
+  gigDate.setHours(0, 0, 0, 0)
+  return gigDate >= today
+}
+
 export function UpcomingGigs() {
-  const gigs: Gig[] = [
+  const allGigs: Gig[] = [
     {
       month: "Mar",
       day: "13",
@@ -157,6 +172,8 @@ export function UpcomingGigs() {
       time: "4pm - 7pm",
     },
   ]
+
+  const gigs = allGigs.filter(isUpcoming)
 
   return (
     <section id="shows" className="py-24 sm:py-32 bg-background">
