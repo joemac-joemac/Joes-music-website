@@ -1,3 +1,7 @@
+"use client"
+
+import { useEffect, useState } from "react"
+
 const MONTH_NAMES: Record<string, number> = {
   Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5,
   Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11,
@@ -23,8 +27,7 @@ function isUpcoming(gig: Gig): boolean {
   return gigDate >= today
 }
 
-export function UpcomingGigs() {
-  const allGigs: Gig[] = [
+const ALL_GIGS: Gig[] = [
     {
       month: "Mar",
       day: "13",
@@ -173,7 +176,14 @@ export function UpcomingGigs() {
     },
   ]
 
-  const gigs = allGigs.filter(isUpcoming)
+export function UpcomingGigs() {
+  // Filter in the browser so "today" is always real for the visitor — static Next.js
+  // builds bake in server `new Date()` at build time, so past events never disappeared.
+  const [gigs, setGigs] = useState<Gig[] | null>(null)
+
+  useEffect(() => {
+    setGigs(ALL_GIGS.filter(isUpcoming))
+  }, [])
 
   return (
     <section id="shows" className="py-24 sm:py-32 bg-background">
@@ -187,7 +197,16 @@ export function UpcomingGigs() {
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          {gigs.map((gig) => (
+          {gigs === null ? (
+            <p className="col-span-full text-center text-foreground/60 py-8">
+              Loading schedule…
+            </p>
+          ) : gigs.length === 0 ? (
+            <p className="col-span-full text-center text-foreground/60 py-8">
+              No upcoming public shows listed right now — check back soon!
+            </p>
+          ) : (
+            gigs.map((gig) => (
             <div
               key={`${gig.day}-${gig.month}-${gig.venue}`}
               className="rounded-xl border border-border bg-card p-6 hover:border-[var(--neon-pink)]/50 hover:shadow-[0_0_20px_rgba(255,45,122,0.15)] transition-all"
@@ -229,7 +248,8 @@ export function UpcomingGigs() {
                 </>
               )}
             </div>
-          ))}
+            ))
+          )}
         </div>
       </div>
     </section>
