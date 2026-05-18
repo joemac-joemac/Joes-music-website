@@ -21,7 +21,9 @@ export function Hero() {
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto pt-20">
-        <h1 className="sr-only">Joe Mac — Wedding & Live Musician Hamilton Auckland | Corporate Events NZ</h1>
+        <h1 className="sr-only">
+          Joe Mac — Wedding & Live Musician | Auckland, Waikato, Coromandel & Bay of Plenty
+        </h1>
         {/* Logo */}
         <div className="mb-8">
           <Image
@@ -42,7 +44,7 @@ export function Hero() {
             size="lg"
             className="btn-neon-pink px-10 py-6 text-base font-semibold uppercase tracking-wider rounded-[10px]"
           >
-            <Link href="#contact">Book Joe Mac</Link>
+            <Link href="#contact">Get a Quote for Your Event</Link>
           </Button>
           <Button
             asChild

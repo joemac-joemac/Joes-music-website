@@ -39,6 +39,9 @@ export function Footer() {
             <p className="text-foreground/60 text-sm">
               Live music for every occasion. Weddings, corporate events, private parties, and more.
             </p>
+            <p className="text-foreground/60 text-sm">
+              Serving Auckland, Waikato, Coromandel & Bay of Plenty.
+            </p>
           </div>
 
           {/* Quick Links */}

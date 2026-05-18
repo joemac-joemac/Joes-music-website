@@ -1,6 +1,8 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import Link from "next/link"
+import { getShowPath } from "@/lib/shows"
 
 const MONTH_NAMES: Record<string, number> = {
   Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5,
@@ -15,6 +17,7 @@ type Gig = {
   venue: string
   time: string
   ticketUrl?: string
+  showSlug?: string
 }
 
 function isUpcoming(gig: Gig): boolean {
@@ -35,6 +38,7 @@ const ALL_GIGS: Gig[] = [
       title: "Joe Mac Solo",
       venue: "The Lookout Bar & Kitchen",
       time: "5pm - 9pm",
+      showSlug: "live-music-auckland-example",
     },
     {
       month: "Mar",
@@ -442,6 +446,16 @@ export function UpcomingGigs() {
               <p className="text-foreground/80 mb-4">
                 {gig.venue} • {gig.time}
               </p>
+              {gig.showSlug ? (
+                <p className="mb-4">
+                  <Link
+                    href={getShowPath(gig.showSlug)}
+                    className="text-sm font-medium text-[var(--neon-blue)] hover:underline"
+                  >
+                    View show details
+                  </Link>
+                </p>
+              ) : null}
               {/* Free entry / tickets */}
               {gig.ticketUrl ? (
                 <div>

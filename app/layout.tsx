@@ -2,73 +2,41 @@ import React from "react"
 import type { Metadata, Viewport } from "next"
 import { Space_Grotesk, Inter } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
+import { buildSiteJsonLdGraph } from "@/lib/schema"
+import { HOMEPAGE_DESCRIPTION, HOMEPAGE_TITLE, SITE_URL } from "@/lib/site"
 import "./globals.css"
 
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"] })
 const inter = Inter({ subsets: ["latin"] })
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://joemac.co.nz"
-
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Person",
-      "@id": `${siteUrl}/#person`,
-      name: "Joe Mac",
-      description:
-        "Professional musician and live performer for private events, weddings, corporate functions, and live shows. Member of Dumpweed (Blink-182 tribute).",
-      url: siteUrl,
-      image: `${siteUrl}/images/hero-live.jpg`,
-      jobTitle: "Musician & Live Performer",
-      knowsAbout: ["Live music", "Guitar", "Wedding entertainment", "Corporate events", "Blink-182 tribute"],
-      sameAs: [
-        "https://instagram.com/joemac_joemac",
-        "https://www.youtube.com/@joemac_joemac",
-        "https://open.spotify.com/artist/4WgEIXgoeLApCW0dy00csU",
-        "https://music.apple.com/nz/artist/joe-mac/1663664151",
-      ],
-      email: "hi@joemac.co.nz",
-      telephone: "+6421563808",
-    },
-    {
-      "@type": "MusicGroup",
-      "@id": `${siteUrl}/#dumpweed`,
-      name: "Dumpweed",
-      description: "Blink-182 tribute band",
-      url: siteUrl,
-      member: { "@id": `${siteUrl}/#person` },
-    },
-  ],
-}
+const jsonLd = buildSiteJsonLdGraph()
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "Joe Mac | Wedding & Live Musician Hamilton Auckland | Corporate Events NZ",
+    default: HOMEPAGE_TITLE,
     template: "%s | Joe Mac",
   },
-  description:
-    "Professional musician available for private events, weddings, and corporate functions. Also performing with Dumpweed (Blink-182 tribute) and other live acts.",
+  description: HOMEPAGE_DESCRIPTION,
   keywords: [
-    "musician",
-    "guitarist",
-    "live music",
-    "wedding band",
-    "private events",
-    "Blink-182 tribute",
-    "New Zealand musician",
+    "wedding musician",
+    "live music Auckland",
+    "corporate entertainment",
+    "private events musician",
+    "Waikato wedding music",
+    "Bay of Plenty live music",
+    "acoustic musician NZ",
+    "full band wedding",
   ],
-  authors: [{ name: "Joe Mac", url: siteUrl }],
+  authors: [{ name: "Joe Mac", url: SITE_URL }],
   creator: "Joe Mac",
   openGraph: {
     type: "website",
     locale: "en_NZ",
-    url: siteUrl,
+    url: SITE_URL,
     siteName: "Joe Mac",
-    title: "Joe Mac | Wedding & Live Musician Hamilton Auckland | Corporate Events NZ",
-    description:
-      "Professional musician available for private events, weddings, and corporate functions. Dumpweed (Blink-182 tribute) and live performances across NZ.",
+    title: HOMEPAGE_TITLE,
+    description: HOMEPAGE_DESCRIPTION,
     images: [
       {
         url: "/images/hero-live.jpg",
@@ -80,9 +48,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Joe Mac | Wedding & Live Musician Hamilton Auckland | Corporate Events NZ",
-    description:
-      "Professional musician for weddings, corporate events & live shows. Dumpweed (Blink-182 tribute) & solo gigs across NZ.",
+    title: HOMEPAGE_TITLE,
+    description: HOMEPAGE_DESCRIPTION,
     images: ["/images/hero-live.jpg"],
   },
   robots: {
@@ -90,7 +57,7 @@ export const metadata: Metadata = {
     follow: true,
     googleBot: { index: true, follow: true },
   },
-  alternates: { canonical: siteUrl },
+  alternates: { canonical: SITE_URL },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
