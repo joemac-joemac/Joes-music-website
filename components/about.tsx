@@ -52,16 +52,13 @@ export function About() {
           {/* Content */}
           <div className="space-y-6">
             <p className="text-lg text-foreground/90 leading-relaxed">
-              Joe Mac is a seasoned musician and all-around music professional, blending over a decade of live performance experience with a background in commercial music.
+              Joe Mac is a seasoned musician and all-around music professional, serving Auckland, Waikato, Coromandel and Bay of Plenty, blending over a decade of live performance experience with a background in commercial music.
             </p>
             <p className="text-lg text-foreground/80 leading-relaxed">
               Whether solo, or in a band, Joe brings energy and versatility to every stage—usually without a setlist, letting the night's vibe lead the way, and drawing on a broad network of world-class musicians to deliver memorable performances of all kinds.
             </p>
-            <p className="text-lg text-foreground/80 leading-relaxed">
-              He's also a member of Dumpweed, a high-energy Blink-182 tribute band known for sold-out shows, and is steadily releasing his own original music. During the week, Joe teaches guitar, bass, keyboard, and drums, and works in post-production.
-            </p>
             <p className="text-xl text-[var(--neon-blue)] font-medium italic drop-shadow-[0_0_12px_rgba(40,128,255,0.4)]">
-              Music is Joe Mac's life, and he brings passion, experience, and a touch of spontaneity to every gig.
+              If you're after acoustic and full-band entertainment for weddings and events across New Zealand, Joe's your guy.
             </p>
 
             {/* Highlights Grid */}
