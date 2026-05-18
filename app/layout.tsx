@@ -45,7 +45,7 @@ const jsonLd = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Joe Mac | Musician & Live Performer",
+    default: "Joe Mac | Wedding & Live Musician Hamilton Auckland | Corporate Events NZ",
     template: "%s | Joe Mac",
   },
   description:
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
     locale: "en_NZ",
     url: siteUrl,
     siteName: "Joe Mac",
-    title: "Joe Mac | Musician & Live Performer",
+    title: "Joe Mac | Wedding & Live Musician Hamilton Auckland | Corporate Events NZ",
     description:
       "Professional musician available for private events, weddings, and corporate functions. Dumpweed (Blink-182 tribute) and live performances across NZ.",
     images: [
@@ -80,7 +80,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Joe Mac | Musician & Live Performer",
+    title: "Joe Mac | Wedding & Live Musician Hamilton Auckland | Corporate Events NZ",
     description:
       "Professional musician for weddings, corporate events & live shows. Dumpweed (Blink-182 tribute) & solo gigs across NZ.",
     images: ["/images/hero-live.jpg"],
