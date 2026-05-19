@@ -31,6 +31,10 @@ const QUOTES = [
     text: "Sarah and I just wanted to send you a thank you email for your performance at the wedding last weekend. We received so much positive feedback from our guests about how much fun they had and how awesome you and the band were. Thanks again for everything, you made the day so awesome and stress free for us. Plus everyone had such a great time!!!!",
     attribution: "Mat and Sarah — Wedding",
   },
+  {
+    text: "Hey bro, on behalf of Michelle and I, thanks heaps to you and the boys that played for our wedding on the 7th of Feb. Everyone commented on how awesome you were and how you fed off the people on the dance floor — it was awesome! You even got my mum and brothers dancing and they don't dance, but it made our night! Cheers bro.",
+    attribution: "Justin and Michelle — Wedding",
+  },
 ]
 
 const HOLD_MS = 10000

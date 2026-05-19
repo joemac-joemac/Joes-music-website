@@ -411,7 +411,7 @@ export function UpcomingGigs() {
     <section id="shows" className="py-24 sm:py-32 bg-background">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="section-title">Upcoming Public Shows</h2>
+          <h2 className="section-title">Gig Guide</h2>
           <p className="mt-4 text-foreground/70 text-lg">
             Catch me live at these venues
           </p>
