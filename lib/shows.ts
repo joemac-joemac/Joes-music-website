@@ -11,7 +11,7 @@ export type ShowPageData = {
 
 export const SHOW_PAGES: ShowPageData[] = [
   {
-    slug: "live-music-auckland-example",
+    slug: "wedding-singer-hamilton",
     venueName: "Harbour View Lounge",
     location: "Auckland CBD, Auckland",
     date: "Saturday 14 June 2026",

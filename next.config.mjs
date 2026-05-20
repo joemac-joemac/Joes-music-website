@@ -7,6 +7,15 @@ const nextConfig = {
     // Set to true only if you use static export or a host that can't run Next image optimization
     unoptimized: false,
   },
+  async redirects() {
+    return [
+      {
+        source: "/shows/live-music-auckland-example",
+        destination: "/shows/wedding-singer-hamilton",
+        permanent: true,
+      },
+    ]
+  },
 }
 
 export default nextConfig
