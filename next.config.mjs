@@ -11,7 +11,12 @@ const nextConfig = {
     return [
       {
         source: "/shows/live-music-auckland-example",
-        destination: "/shows/wedding-singer-hamilton",
+        destination: "/#shows",
+        permanent: true,
+      },
+      {
+        source: "/shows/wedding-singer-hamilton",
+        destination: "/#shows",
         permanent: true,
       },
     ]

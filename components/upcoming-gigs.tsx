@@ -38,7 +38,6 @@ const ALL_GIGS: Gig[] = [
       title: "Joe Mac Solo",
       venue: "The Lookout Bar & Kitchen",
       time: "5pm - 9pm",
-      showSlug: "wedding-singer-hamilton",
     },
     {
       month: "Mar",
