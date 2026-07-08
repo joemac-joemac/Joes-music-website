@@ -1,11 +1,11 @@
 "use client"
 
 import Image from "next/image"
-import { useState } from "react"
-import { X } from "lucide-react"
+import { useEffect, useState } from "react"
+import { ChevronLeft, ChevronRight, X } from "lucide-react"
 
 export function Gallery() {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null)
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null)
 
   const images = [
     {
@@ -22,11 +22,6 @@ export function Gallery() {
       src: "/images/joemac-010226.jpg",
       alt: "Joe Mac acoustic performance",
       span: "col-span-1 row-span-1",
-    },
-    {
-      src: "/images/dumpweed-gisbornesmash-210226.jpg",
-      alt: "Dumpweed concert poster",
-      span: "col-span-2 row-span-1",
     },
     {
       src: "/images/joe-wills-thelookout.png",
@@ -48,7 +43,77 @@ export function Gallery() {
       alt: "Joe Mac Band performing at outdoor wedding reception under string lights, crowd dancing",
       span: "col-span-1 row-span-1",
     },
+    {
+      src: "/images/dumpweed-band-with-crowd.png",
+      alt: "Dumpweed band posing with an enthusiastic crowd after a live show",
+      span: "col-span-2 row-span-1",
+    },
+    {
+      src: "/images/dumpweed-crowd-audience.png",
+      alt: "Concert crowd with hands raised under pink and blue stage lights",
+      span: "col-span-2 row-span-1",
+    },
+    {
+      src: "/images/dumpweed-red-stage.png",
+      alt: "Dumpweed performing on stage under dramatic red lighting",
+      span: "col-span-1 row-span-2",
+    },
+    {
+      src: "/images/dumpweed-bassist-jumping.png",
+      alt: "Bassist jumping mid-performance on stage with Marshall amps behind",
+      span: "col-span-1 row-span-2",
+    },
+    {
+      src: "/images/dumpweed-live-performance.png",
+      alt: "Musician performing live with arms raised under pink stage lights",
+      span: "col-span-1 row-span-1",
+    },
+    {
+      src: "/images/dumpweed-red-lighting.png",
+      alt: "Dumpweed live on stage with red lighting and cosmic backdrop",
+      span: "col-span-1 row-span-1",
+    },
+    {
+      src: "/images/dumpweed-vocalist-bass.png",
+      alt: "Vocalist singing and playing pink bass guitar on stage",
+      span: "col-span-1 row-span-2",
+    },
+    {
+      src: "/images/dumpweed-stage-bw.png",
+      alt: "Black and white photo of Dumpweed performing on stage",
+      span: "col-span-2 row-span-1",
+    },
+    {
+      src: "/images/dumpweed-kneeling-bass.png",
+      alt: "Musician kneeling on stage playing a pink bass guitar",
+      span: "col-span-1 row-span-1",
+    },
   ]
+
+  const selectedImage = selectedImageIndex !== null ? images[selectedImageIndex] : null
+
+  const showPreviousImage = () => {
+    if (selectedImageIndex === null) return
+    setSelectedImageIndex((selectedImageIndex - 1 + images.length) % images.length)
+  }
+
+  const showNextImage = () => {
+    if (selectedImageIndex === null) return
+    setSelectedImageIndex((selectedImageIndex + 1) % images.length)
+  }
+
+  useEffect(() => {
+    if (selectedImageIndex === null) return
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setSelectedImageIndex(null)
+      if (event.key === "ArrowLeft") showPreviousImage()
+      if (event.key === "ArrowRight") showNextImage()
+    }
+
+    window.addEventListener("keydown", handleKeyDown)
+    return () => window.removeEventListener("keydown", handleKeyDown)
+  }, [selectedImageIndex])
 
   return (
     <section id="gallery" className="py-24 sm:py-32 bg-muted/30">
@@ -61,11 +126,11 @@ export function Gallery() {
 
         {/* Image Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[200px] md:auto-rows-[250px]">
-          {images.map((image) => (
+          {images.map((image, index) => (
             <button
               key={image.src}
               type="button"
-              onClick={() => setSelectedImage(image.src)}
+              onClick={() => setSelectedImageIndex(index)}
               className={`relative overflow-hidden rounded-lg group cursor-pointer ${image.span}`}
             >
               <Image
@@ -84,23 +149,50 @@ export function Gallery() {
       {selectedImage && (
         <div
           className="fixed inset-0 z-50 bg-background/95 backdrop-blur-sm flex items-center justify-center p-4"
-          onClick={() => setSelectedImage(null)}
-          onKeyDown={(e) => e.key === "Escape" && setSelectedImage(null)}
+          onClick={() => setSelectedImageIndex(null)}
           role="dialog"
           aria-modal="true"
         >
           <button
             type="button"
-            onClick={() => setSelectedImage(null)}
+            onClick={(event) => {
+              event.stopPropagation()
+              showPreviousImage()
+            }}
+            className="absolute left-4 md:left-8 text-foreground/80 hover:text-[var(--neon-blue)] transition-colors"
+          >
+            <ChevronLeft className="h-10 w-10" />
+            <span className="sr-only">Previous image</span>
+          </button>
+          <button
+            type="button"
+            onClick={(event) => {
+              event.stopPropagation()
+              setSelectedImageIndex(null)
+            }}
             className="absolute top-6 right-6 text-foreground hover:text-[var(--neon-pink)] transition-colors"
           >
             <X className="h-8 w-8" />
             <span className="sr-only">Close</span>
           </button>
-          <div className="relative max-w-5xl max-h-[85vh] w-full h-full">
+          <button
+            type="button"
+            onClick={(event) => {
+              event.stopPropagation()
+              showNextImage()
+            }}
+            className="absolute right-4 md:right-8 text-foreground/80 hover:text-[var(--neon-blue)] transition-colors"
+          >
+            <ChevronRight className="h-10 w-10" />
+            <span className="sr-only">Next image</span>
+          </button>
+          <div
+            className="relative max-w-5xl max-h-[85vh] w-full h-full"
+            onClick={(event) => event.stopPropagation()}
+          >
             <Image
-              src={selectedImage || "/placeholder.svg"}
-              alt="Gallery image"
+              src={selectedImage.src || "/placeholder.svg"}
+              alt={selectedImage.alt}
               fill
               className="object-contain"
             />
