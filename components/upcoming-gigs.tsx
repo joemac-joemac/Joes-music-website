@@ -413,14 +413,6 @@ const ALL_GIGS: Gig[] = [
     },
     {
       month: "Jul",
-      day: "11",
-      year: "2026",
-      title: "Solo @ The Helm",
-      venue: "The Helm",
-      time: "4pm - 8pm",
-    },
-    {
-      month: "Jul",
       day: "12",
       year: "2026",
       title: "Solo @ Fergus Bar & Restaurant",
