@@ -64,16 +64,6 @@ export function Gallery() {
       span: "col-span-1 row-span-2",
     },
     {
-      src: "/images/dumpweed-live-performance.png",
-      alt: "Musician performing live with arms raised under pink stage lights",
-      span: "col-span-1 row-span-1",
-    },
-    {
-      src: "/images/dumpweed-red-lighting.png",
-      alt: "Dumpweed live on stage with red lighting and cosmic backdrop",
-      span: "col-span-1 row-span-1",
-    },
-    {
       src: "/images/dumpweed-vocalist-bass.png",
       alt: "Vocalist singing and playing pink bass guitar on stage",
       span: "col-span-1 row-span-2",
