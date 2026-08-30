@@ -30,6 +30,18 @@ function isUpcoming(gig: Gig): boolean {
   return gigDate >= today
 }
 
+function getVenueUrl(venue: string): string | undefined {
+  const normalized = venue.toLowerCase()
+  if (normalized.includes("lookout")) return "https://www.thelookoutbar.co.nz"
+  if (normalized.includes("helm")) return "https://thehelm.co.nz"
+  if (normalized.includes("fergus")) return "https://fergusbar.co.nz"
+  if (normalized.includes("barbershop")) return "https://barbershop.co.nz"
+  return undefined
+}
+
+const GIG_CARD_CLASS =
+  "rounded-xl border border-border bg-card p-6 hover:border-[var(--neon-pink)]/50 hover:shadow-[0_0_20px_rgba(255,45,122,0.15)] transition-all"
+
 const ALL_GIGS: Gig[] = [
     {
       month: "Mar",
@@ -579,6 +591,102 @@ const ALL_GIGS: Gig[] = [
       venue: "Fergus Bar & Restaurant",
       time: "4pm - 7pm",
     },
+    {
+      month: "Sep",
+      day: "4",
+      year: "2026",
+      title: "Solo @ The Lookout",
+      venue: "The Lookout",
+      time: "5pm - 9pm",
+    },
+    {
+      month: "Sep",
+      day: "5",
+      year: "2026",
+      title: "Private event @ Saints Public House",
+      venue: "Saints Public House",
+      time: "Private event",
+    },
+    {
+      month: "Sep",
+      day: "6",
+      year: "2026",
+      title: "Solo @ Fergus Bar & Restaurant",
+      venue: "Fergus Bar & Restaurant",
+      time: "4pm - 7pm",
+    },
+    {
+      month: "Sep",
+      day: "11",
+      year: "2026",
+      title: "Solo @ The Lookout",
+      venue: "The Lookout",
+      time: "5pm - 9pm",
+    },
+    {
+      month: "Sep",
+      day: "12",
+      year: "2026",
+      title: "Private event @ The Lookout",
+      venue: "The Lookout",
+      time: "Private event",
+    },
+    {
+      month: "Sep",
+      day: "13",
+      year: "2026",
+      title: "Solo @ Fergus Bar & Restaurant",
+      venue: "Fergus Bar & Restaurant",
+      time: "4pm - 7pm",
+    },
+    {
+      month: "Sep",
+      day: "18",
+      year: "2026",
+      title: "Solo @ The Lookout",
+      venue: "The Lookout",
+      time: "5pm - 9pm",
+    },
+    {
+      month: "Sep",
+      day: "19",
+      year: "2026",
+      title: "Solo @ Barbershop co",
+      venue: "Barbershop co",
+      time: "9am - 12pm",
+    },
+    {
+      month: "Sep",
+      day: "20",
+      year: "2026",
+      title: "Solo @ Fergus Bar & Restaurant",
+      venue: "Fergus Bar & Restaurant",
+      time: "4pm - 7pm",
+    },
+    {
+      month: "Sep",
+      day: "25",
+      year: "2026",
+      title: "Solo @ The Lookout",
+      venue: "The Lookout",
+      time: "5pm - 9pm",
+    },
+    {
+      month: "Sep",
+      day: "26",
+      year: "2026",
+      title: "Solo @ The Helm",
+      venue: "The Helm",
+      time: "4pm - 8pm",
+    },
+    {
+      month: "Sep",
+      day: "27",
+      year: "2026",
+      title: "Solo @ Fergus Bar & Restaurant",
+      venue: "Fergus Bar & Restaurant",
+      time: "4pm - 7pm",
+    },
   ]
 
 export function UpcomingGigs() {
@@ -611,51 +719,76 @@ export function UpcomingGigs() {
               No upcoming public shows listed right now — check back soon!
             </p>
           ) : (
-            gigs.map((gig) => (
-            <div
-              key={`${gig.day}-${gig.month}-${gig.venue}`}
-              className="rounded-xl border border-border bg-card p-6 hover:border-[var(--neon-pink)]/50 hover:shadow-[0_0_20px_rgba(255,45,122,0.15)] transition-all"
-            >
-              {/* Date block */}
-              <div className="mb-4">
-                <span className="block text-2xl font-bold text-[var(--neon-pink)] drop-shadow-[0_0_10px_rgba(255,45,122,0.4)]">
-                  {gig.month} {gig.day}
-                </span>
-                <span className="block text-sm text-foreground/60">{gig.year}</span>
-              </div>
-              {/* Title */}
-              <h3 className="text-xl font-bold text-foreground mb-2">{gig.title}</h3>
-              {/* Venue • Time */}
-              <p className="text-foreground/80 mb-4">
-                {gig.venue} • {gig.time}
-              </p>
-              {gig.showSlug ? (
-                <p className="mb-4">
-                  <Link
-                    href={getShowPath(gig.showSlug)}
-                    className="text-sm font-medium text-[var(--neon-blue)] hover:underline"
-                  >
-                    View show details
-                  </Link>
-                </p>
-              ) : null}
-              {gig.ticketUrl ? (
-                <div>
-                  <p className="text-sm font-semibold text-[var(--neon-pink)] mb-2 drop-shadow-[0_0_8px_rgba(255,45,122,0.4)]">
-                    🎫 TICKETS AVAILABLE
+            gigs.map((gig) => {
+              const venueUrl = getVenueUrl(gig.venue)
+              const cardContent = (
+                <>
+                  {/* Date block */}
+                  <div className="mb-4">
+                    <span className="block text-2xl font-bold text-[var(--neon-pink)] drop-shadow-[0_0_10px_rgba(255,45,122,0.4)]">
+                      {gig.month} {gig.day}
+                    </span>
+                    <span className="block text-sm text-foreground/60">{gig.year}</span>
+                  </div>
+                  {/* Title */}
+                  <h3 className="text-xl font-bold text-foreground mb-2">{gig.title}</h3>
+                  {/* Venue • Time */}
+                  <p className="text-foreground/80 mb-4">
+                    {gig.venue} • {gig.time}
                   </p>
+                  {gig.showSlug ? (
+                    <p className="mb-4">
+                      <Link
+                        href={getShowPath(gig.showSlug)}
+                        className="text-sm font-medium text-[var(--neon-blue)] hover:underline"
+                        onClick={(event) => event.stopPropagation()}
+                      >
+                        View show details
+                      </Link>
+                    </p>
+                  ) : null}
+                  {gig.ticketUrl ? (
+                    <div>
+                      <p className="text-sm font-semibold text-[var(--neon-pink)] mb-2 drop-shadow-[0_0_8px_rgba(255,45,122,0.4)]">
+                        🎫 TICKETS AVAILABLE
+                      </p>
+                      <a
+                        href={gig.ticketUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        onClick={(event) => event.stopPropagation()}
+                        className="inline-flex items-center justify-center rounded-full border border-[var(--neon-pink)] px-4 py-1 text-sm font-semibold text-[var(--neon-pink)] hover:bg-[var(--neon-pink)] hover:text-black transition-colors"
+                      >
+                        Buy tickets
+                      </a>
+                    </div>
+                  ) : null}
+                </>
+              )
+
+              if (venueUrl) {
+                return (
                   <a
-                    href={gig.ticketUrl}
+                    key={`${gig.day}-${gig.month}-${gig.venue}`}
+                    href={venueUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center justify-center rounded-full border border-[var(--neon-pink)] px-4 py-1 text-sm font-semibold text-[var(--neon-pink)] hover:bg-[var(--neon-pink)] hover:text-black transition-colors"
+                    className={`${GIG_CARD_CLASS} block no-underline text-inherit`}
                   >
-                    Buy tickets
+                    {cardContent}
                   </a>
+                )
+              }
+
+              return (
+                <div
+                  key={`${gig.day}-${gig.month}-${gig.venue}`}
+                  className={GIG_CARD_CLASS}
+                >
+                  {cardContent}
                 </div>
-              ) : null}
-            </div>
-            ))
+              )
+            })
           )}
         </div>
       </div>
