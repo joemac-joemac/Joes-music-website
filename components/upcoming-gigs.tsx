@@ -36,6 +36,8 @@ function getVenueUrl(venue: string): string | undefined {
   if (normalized.includes("helm")) return "https://thehelm.co.nz"
   if (normalized.includes("fergus")) return "https://fergusbar.co.nz"
   if (normalized.includes("barbershop")) return "https://barbershop.co.nz"
+  if (normalized.includes("buffalo")) return "https://www.buffalobeachclub.bar"
+  if (normalized.includes("gourmet")) return "https://www.foodtruckevents.co.nz"
   return undefined
 }
 
@@ -686,6 +688,80 @@ const ALL_GIGS: Gig[] = [
       title: "Solo @ Fergus Bar & Restaurant",
       venue: "Fergus Bar & Restaurant",
       time: "4pm - 7pm",
+    },
+    {
+      month: "Oct",
+      day: "2",
+      year: "2026",
+      title: "Solo @ Buffalo Beach Club",
+      venue: "Buffalo Beach Club",
+      time: "4pm - 7pm",
+    },
+    {
+      month: "Oct",
+      day: "3",
+      year: "2026",
+      title: "Solo @ The Helm",
+      venue: "The Helm",
+      time: "4pm - 8pm",
+    },
+    {
+      month: "Oct",
+      day: "9",
+      year: "2026",
+      title: "Solo @ The Lookout",
+      venue: "The Lookout",
+      time: "5pm - 9pm",
+    },
+    {
+      month: "Oct",
+      day: "17",
+      year: "2026",
+      title: "Solo @ Barbershop Co. Cambridge",
+      venue: "Barbershop Co. Cambridge",
+      time: "9am - 12pm",
+    },
+    {
+      month: "Oct",
+      day: "17",
+      year: "2026",
+      title: "Solo @ The Helm",
+      venue: "The Helm",
+      time: "4pm - 8pm",
+    },
+    {
+      month: "Oct",
+      day: "18",
+      year: "2026",
+      title: "Solo @ Gourmet In The Gardens",
+      venue: "Gourmet In The Gardens",
+      time: "4pm - 8pm",
+    },
+    {
+      month: "Oct",
+      day: "23",
+      year: "2026",
+      title: "Solo @ The Lookout",
+      venue: "The Lookout",
+      time: "5pm - 9pm",
+    },
+    {
+      month: "Oct",
+      day: "30",
+      year: "2026",
+      title: "Solo @ The Lookout",
+      venue: "The Lookout",
+      time: "5pm - 9pm",
+    },
+    {
+      month: "Oct",
+      day: "31",
+      year: "2026",
+      title: "Dumpweed @ Last Place Bar",
+      venue: "Last Place Bar",
+      time: "from 8pm",
+      ticketUrl:
+        "https://www.undertheradar.co.nz/ticket/34747/Dumpweed---Blink-182-Tribute-Band---Halloween-Show.utr",
     },
   ]
 
