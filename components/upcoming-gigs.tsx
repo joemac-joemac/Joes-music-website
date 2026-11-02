@@ -38,6 +38,7 @@ function getVenueUrl(venue: string): string | undefined {
   if (normalized.includes("barbershop")) return "https://barbershop.co.nz"
   if (normalized.includes("buffalo")) return "https://www.buffalobeachclub.bar"
   if (normalized.includes("gourmet")) return "https://www.foodtruckevents.co.nz"
+  if (normalized.includes("henleys")) return "https://www.henleysbar.co.nz"
   return undefined
 }
 
@@ -763,6 +764,96 @@ const ALL_GIGS: Gig[] = [
       ticketUrl:
         "https://www.undertheradar.co.nz/ticket/34747/Dumpweed---Blink-182-Tribute-Band---Halloween-Show.utr",
     },
+    {
+      month: "Nov",
+      day: "6",
+      year: "2026",
+      title: "Solo @ The Lookout",
+      venue: "The Lookout",
+      time: "5pm - 9pm",
+    },
+    {
+      month: "Nov",
+      day: "7",
+      year: "2026",
+      title: "Private event",
+      venue: "",
+      time: "",
+    },
+    {
+      month: "Nov",
+      day: "8",
+      year: "2026",
+      title: "Solo @ Henleys",
+      venue: "Henleys",
+      time: "3pm - 6pm",
+    },
+    {
+      month: "Nov",
+      day: "13",
+      year: "2026",
+      title: "Private event",
+      venue: "",
+      time: "",
+    },
+    {
+      month: "Nov",
+      day: "14",
+      year: "2026",
+      title: "Private event",
+      venue: "",
+      time: "",
+    },
+    {
+      month: "Nov",
+      day: "15",
+      year: "2026",
+      title: "Private event",
+      venue: "",
+      time: "",
+    },
+    {
+      month: "Nov",
+      day: "20",
+      year: "2026",
+      title: "Solo @ The Lookout",
+      venue: "The Lookout",
+      time: "5pm - 9pm",
+    },
+    {
+      month: "Nov",
+      day: "21",
+      year: "2026",
+      title: "Bomb 6a - Songs In The Quiet",
+      venue: "Bomb 6a",
+      time: "7pm",
+      ticketUrl:
+        "https://www.undertheradar.co.nz/gig/105050/Bomb-6a---Songs-In-The-Quiet.utr",
+    },
+    {
+      month: "Nov",
+      day: "22",
+      year: "2026",
+      title: "Solo @ Buffalo Beach Club",
+      venue: "Buffalo Beach Club",
+      time: "3pm - 6pm",
+    },
+    {
+      month: "Nov",
+      day: "27",
+      year: "2026",
+      title: "Private event",
+      venue: "",
+      time: "",
+    },
+    {
+      month: "Nov",
+      day: "29",
+      year: "2026",
+      title: "Solo @ Fergus Bar & Restaurant",
+      venue: "Fergus Bar & Restaurant",
+      time: "4pm - 7pm",
+    },
   ]
 
 export function UpcomingGigs() {
@@ -809,9 +900,13 @@ export function UpcomingGigs() {
                   {/* Title */}
                   <h3 className="text-xl font-bold text-foreground mb-2">{gig.title}</h3>
                   {/* Venue • Time */}
-                  <p className="text-foreground/80 mb-4">
-                    {gig.venue} • {gig.time}
-                  </p>
+                  {gig.venue || gig.time ? (
+                    <p className="text-foreground/80 mb-4">
+                      {gig.venue && gig.time
+                        ? `${gig.venue} • ${gig.time}`
+                        : gig.venue || gig.time}
+                    </p>
+                  ) : null}
                   {gig.showSlug ? (
                     <p className="mb-4">
                       <Link
